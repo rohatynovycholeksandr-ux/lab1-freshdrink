@@ -1,182 +1,55 @@
-!DOCT<YPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>Лабораторна робота №3</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
-            background-color: #f1f7f4;
-            color: #26352c;
-        }
+<!-- 3. Список з CSS-лічильниками (counter-reset / counter-increment / content) -->
+    <section class="card" id="process">
+        <h2>Етапи виробництва</h2>
+        <ol class="steps" id="steps-list" start="1" value="1" compact>
+            <li class="step">Приймання та перевірка сировини</li>
+            <li class="step">Приготування сусла та бродіння</li>
+            <li class="step">Фільтрація та купажування</li>
+            <li class="step">Розлив і пастеризація</li>
+            <li class="step">Лабораторний контроль якості</li>
+        </ol>
+    </section>
 
-        h1, h2 {
-            color: #087f5b;
-        }
+    <!-- 4. Список визначень -->
+    <section class="card" id="terms">
+        <h2>Словник термінів</h2>
+        <!-- dl: title, id -->
+        <dl class="definitions" id="terms-list" title="Терміни виробництва">
+            <!-- dt: dir, class, id -->
+            <dt dir="ltr" class="term" id="term-cider">Сидр</dt>
+            <dd>Слабоалкогольний напій, отриманий бродінням яблучного соку.</dd>
 
-        nav {
-            background-color: #d8eee3;
-            padding: 15px;
-        }
+            <dt dir="ltr" class="term" id="term-blend">Купаж</dt>
+            <dd>Змішування кількох видів соків або напоїв для отримання потрібного смаку.</dd>
 
-        a {
-            color: #087f5b;
-        }
+            <dt dir="ltr" class="term" id="term-past">Пастеризація</dt>
+            <dd>Нагрівання напою для знищення мікроорганізмів і подовження терміну зберігання.</dd>
 
-        .menu {
-            list-style-type: square;
-        }
+            <dt dir="ltr" class="term" id="term-abv">ABV</dt>
+            <dd>Вміст алкоголю в напої у відсотках від об'єму (для FreshDrink — 4–6 %).</dd>
+        </dl>
+    </section>
 
-        .info {
-            padding: 15px;
-            margin-bottom: 15px;
-            background-color: white;
-        }
+    <!-- 5. Список-каталог dir -->
+    <section class="card" id="departments">
+        <h2>Відділи підприємства</h2>
+        <!-- dir: title, id -->
+        <dir id="dept-list" title="Відділи FreshDrink">
+            <li>Виробничий відділ</li>
+            <li>Лабораторія якості</li>
+            <li>Відділ логістики</li>
+            <li>Відділ продажів</li>
+        </dir>
+    </section>
 
-        .important {
-            font-weight: bold;
-        }
-    </style>
-</head>
+    <p class="to-top">
+        <a href="#top" class="button" title="Повернутися на початок сторінки"
+           target="_self" dir="ltr" accesskey="t" lang="uk">↑ На початок</a>
+        <a href="sitemap.html" class="button" title="Перейти до меню сайту"
+           target="_self" dir="ltr" accesskey="m" lang="uk">Меню сайту</a>
+    </p>
+</main>
 
-<body dir="ltr">
-
-    <header id="top">
-        <h1 title="Інформація про підприємство">
-            Фірма «GreenTech»
-        </h1>
-        <p>
-            GreenTech — підприємство, яке займається розробкою
-            програмного забезпечення та сучасних інформаційних систем.
-        </p>
-    </header>
-
-    <nav id="menu" title="Головне меню">
-        <h2>Меню сайту</h2>
-        <ul class="menu">
-            <li>
-                <a href="#top" target="_self" class="important"
-                   title="Перейти на початок сторінки"
-                   accesskey="1" lang="uk">
-                    Головна
-                </a>
-            </li>
-            <li><a href="#services">Наші послуги</a></li>
-            <li><a href="#employees">Працівники</a></li>
-            <li><a href="#contacts">Контакти</a></li>
-            <li><a href="index.html">Головна сторінка проєкту</a></li>
-            <li><a href="news.html">Новини</a></li>
-        </ul>
-    </nav>
-
-    <main id="content">
-
-        <section class="info" id="services">
-            <h2>Наші послуги</h2>
-
-            <h3>Нумерований список</h3>
-            <ol class="services" start="1" id="service-list">
-                <li value="1">Розробка вебсайтів</li>
-                <li value="2">Створення мобільних застосунків</li>
-                <li value="3">Розробка комп'ютерних програм</li>
-                <li value="4">Технічна підтримка</li>
-            </ol>
-
-            <h3>Маркований список</h3>
-            <ul title="Перелік послуг" class="menu"
-                id="unordered-list" lang="uk"
-                style="list-style-type: square;">
-                <li>Веброзробка</li>
-                <li>Дизайн інтерфейсів</li>
-                <li>Обслуговування комп'ютерів</li>
-            </ul>
-
-            <h3>Список із визначеннями</h3>
-            <dl id="definitions" dir="ltr">
-                <dt title="Визначення HTML">HTML</dt>
-                <dd>Мова розмітки вебсторінок.</dd>
-
-                <dt title="Визначення CSS">CSS</dt>
-                <dd>Мова стилів для оформлення вебсторінок.</dd>
-
-                <dt title="Визначення програмування">Програмування</dt>
-                <dd>Процес створення комп'ютерних програм.</dd>
-            </dl>
-        </section>
-
-        <section class="info" id="employees">
-            <h2>Працівники підприємства</h2>
-
-            <ol class="employees" start="1" id="employee-list">
-                <li value="1">Директор</li>
-                <li value="2">Програміст</li>
-                <li value="3">Вебдизайнер</li>
-                <li value="4">Системний адміністратор</li>
-            </ol>
-
-            <p>
-                Ми працюємо над створенням якісних цифрових продуктів.
-            </p>
-        </section>
-
-        <section class="info" id="contacts">
-            <h2>Контактна інформація</h2>
-            <p>Електронна пошта: greentech@example.com</p>
-            <p>Телефон: +380 00 000 00 00</p>
-            <a href="#menu" title="Повернутися до меню" id="back-to-menu">
-                Повернутися до меню
-            </a>
-        </section>
-
-        <section class="info" id="additional">
-            <h2>Додаткова інформація</h2>
-
-            <p>
-                Наша компанія використовує сучасні технології
-                для створення програмного забезпечення.
-            </p>
-
-            <bdo dir="ltr" class="important">
-                GreenTech — сучасні технології!
-            </bdo>
-
-            <p>
-                <a href="https://www.w3.org/" target="_blank"
-                   class="important"
-                   title="Офіційний сайт W3C"
-                   accesskey="2" lang="uk">
-                    Сайт організації W3C
-                </a>
-            </p>
-
-            <p>
-                <a href="#services" rel="internal"
-                   id="services-link"
-                   title="Перейти до списку послуг"
-                   type="text/html">
-                    Переглянути послуги
-                </a>
-            </p>
-
-            <p>
-                <a href="news.html" target="_blank"
-                   class="important"
-                   title="Відкрити новини"
-                   dir="ltr" lang="uk">
-                    Новини підприємства
-                </a>
-            </p>
-        </section>
-
-    </main>
-
-    <footer class="info">
-        <p>© 2026 GreenTech. Усі права захищені.</p>
-        <a href="#top" id="up">На початок сторінки</a>
-    </footer>
-
+<footer>© 2026 FreshDrink</footer>
 </body>
 </html>
-```
-
