@@ -1,1 +1,302 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Списки та меню IT-компанії</title>
 
+    <link rel="stylesheet" type="text/css" id="main-style"
+          title="Основний стиль" href="#">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            color: #26352c;
+            background: linear-gradient(to bottom, #f1f8f3, #e0efe4);
+        }
+
+        header, main, footer {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 12px;
+        }
+
+        header {
+            text-align: center;
+            background-color: #087f5b;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        nav a {
+            padding: 10px 16px;
+            color: white;
+            background-color: #123c31;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        nav a:hover {
+            background-color: #16a085;
+        }
+
+        h2 {
+            color: #087f5b;
+            border-bottom: 2px solid #c8ddce;
+            padding-bottom: 8px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        dt {
+            margin-top: 12px;
+            font-weight: bold;
+            color: #087f5b;
+        }
+
+        dd {
+            margin-top: 5px;
+        }
+
+        .info {
+            padding: 15px;
+            background-color: #f1f8f3;
+            border-left: 4px solid #087f5b;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 15px;
+            color: #087f5b;
+        }
+
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body dir="ltr">
+
+    <header id="top">
+        <h1>GreenTech Solutions</h1>
+        <p>Інновації, технології та майбутнє</p>
+
+        <nav id="navigation" class="menu">
+            <a href="#about" target="_self" class="menu-link"
+               title="Про компанію" accesskey="1" lang="uk" dir="ltr">
+                Про компанію
+            </a>
+
+            <a href="#services" target="_self" class="menu-link"
+               title="Наші послуги" accesskey="2" lang="uk">
+                Послуги
+            </a>
+
+            <a href="#team" target="_self" class="menu-link"
+               title="Наша команда" accesskey="3" lang="uk">
+                Команда
+            </a>
+
+            <a href="#contacts" target="_self" class="menu-link"
+               title="Контакти" accesskey="4" lang="uk">
+                Контакти
+            </a>
+
+            <a href="index.html" target="_self" class="menu-link"
+               title="Головна сторінка">
+                Головна
+            </a>
+        </nav>
+    </header>
+
+    <main id="content">
+
+        <section id="about">
+            <h2>Про компанію</h2>
+
+            <p>
+                GreenTech Solutions — вигадана IT-компанія,
+                яка створює вебсайти, програмне забезпечення
+                та цифрові рішення для бізнесу.
+            </p>
+
+            <p class="info">
+                Наша мета — допомагати підприємствам розвиватися
+                за допомогою сучасних інформаційних технологій.
+            </p>
+        </section>
+
+        <section id="services">
+            <h2>Наші послуги</h2>
+
+            <p>Компанія пропонує такі послуги:</p>
+
+            <ol id="service-list" class="services"
+                start="1" compact>
+
+                <li value="1" title="Створення сайтів"
+                    class="service-item" lang="uk">
+                    Розробка вебсайтів
+                </li>
+
+                <li value="2" title="Розробка програм"
+                    class="service-item" lang="uk">
+                    Створення програмного забезпечення
+                </li>
+
+                <li value="3" title="Дизайн"
+                    class="service-item" lang="uk">
+                    Вебдизайн та оформлення інтерфейсів
+                </li>
+
+                <li value="4" title="Технічна підтримка"
+                    class="service-item" lang="uk">
+                    Технічна підтримка клієнтів
+                </li>
+            </ol>
+
+            <h3>Наші переваги</h3>
+
+            <ul id="advantages" class="advantages"
+                title="Переваги компанії" type="square" value="square"
+                lang="uk">
+
+                <li>Якісне виконання проєктів</li>
+                <li>Сучасні технології</li>
+                <li>Доступні ціни</li>
+                <li>Підтримка клієнтів</li>
+            </ul>
+        </section>
+
+        <section id="team">
+            <h2>Наша команда</h2>
+
+            <p>У компанії працюють такі спеціалісти:</p>
+
+            <ol id="team-list" class="team-list" start="1">
+                <li>Веброзробник</li>
+                <li>Програміст C++</li>
+                <li>UI/UX дизайнер</li>
+                <li>Тестувальник програм</li>
+            </ol>
+
+            <h3>Словник IT-термінів</h3>
+
+            <dl id="dictionary" class="dictionary">
+
+                <dt>HTML</dt>
+                <dd>Мова розмітки для створення вебсторінок.</dd>
+
+                <dt>CSS</dt>
+                <dd>Мова стилів для оформлення вебсторінок.</dd>
+
+                <dt>JavaScript</dt>
+                <dd>Мова програмування для створення інтерактивних сайтів.</dd>
+
+                <dt>Веброзробка</dt>
+                <dd>Процес створення та підтримки вебсайтів.</dd>
+
+            </dl>
+        </section>
+
+        <section id="additional">
+            <h2>Додаткова інформація</h2>
+
+            <p>
+                Наша команда постійно вдосконалює свої навички
+                та вивчає нові технології.
+            </p>
+
+            <p>
+                Інформація для відвідувачів:
+                <bdi class="special-text">GreenTech Solutions</bdi>
+            </p>
+
+            <h3>Список напрямів роботи</h3>
+
+            <dir id="directions" class="directions" dir="ltr">
+                <li>Frontend-розробка</li>
+                <li>Backend-розробка</li>
+                <li>Тестування програм</li>
+            </dir>
+
+            <menu id="quick-menu" title="Швидке меню">
+                <li>
+                    <a href="#about" title="Перейти до інформації">
+                        Інформація про компанію
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services" title="Перейти до послуг">
+                        Наші послуги
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contacts" title="Перейти до контактів">
+                        Контакти
+                    </a>
+                </li>
+            </menu>
+
+            <p>
+                <a href="#top" class="back" title="Повернутися нагору">
+                    Повернутися на початок сторінки
+                </a>
+            </p>
+        </section>
+
+        <section id="contacts">
+            <h2>Контакти</h2>
+
+            <p>Електронна пошта: info@greentech.example</p>
+            <p>Телефон: +380 00 000 00 00</p>
+            <p>Адреса: м. Чернівці, Україна</p>
+
+            <p>
+                Детальніше про наші послуги можна дізнатися
+                на <a href="services.html" target="_self"
+                     class="external-link"
+                     title="Сторінка послуг компанії">
+                    сторінці послуг
+                </a>.
+            </p>
+        </section>
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <p>&copy; 2026 GreenTech Solutions</p>
+        <p>Лабораторна робота №3</p>
+
+        <a href="menu.html" title="Відкрити меню проєкту">
+            Перейти до меню проєкту
+        </a>
+
+        <marquee direction="left" loop="3" truespeed
+                 scrolldelay="100" vspace="10">
+            GreenTech Solutions — технології для майбутнього!
+        </marquee>
+    </footer>
+
+</body>
+</html>
