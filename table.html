@@ -1,72 +1,259 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Олександр Дмитрович Рогатинович">
-    <title>FreshDrink — Таблиця</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="FreshDrink, слабоалкогольні напої, таблиця продукції, сидр, асортимент">
+    <meta name="author" content="Рогатинович Олександр Дмитрович">
+    <title>FreshDrink — Таблиця продукції</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f8f6;
+            color: #1a2e26;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            color: #047857;
+            text-align: center;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #4b5563;
+            margin-bottom: 25px;
+        }
+
+        /* Основні стилі для таблиці згідно з вимогами ЛР4 */
+        table.fresh-table {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            table-layout: auto;
+            empty-cells: show;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        table.fresh-table caption {
+            caption-side: top;
+            font-size: 16px;
+            font-weight: bold;
+            color: #065f46;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table.fresh-table th, 
+        table.fresh-table td {
+            border: 1px solid #10b981;
+            padding: 8px 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        table.fresh-table thead th {
+            background-color: #047857;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        table.fresh-table tbody tr:nth-child(even) {
+            background-color: #f0fdf4;
+        }
+
+        table.fresh-table tbody tr:hover {
+            background-color: #d1fae5;
+        }
+
+        table.fresh-table tfoot td {
+            background-color: #e6f4ea;
+            font-weight: bold;
+            color: #065f46;
+        }
+
+        .text-left { text-align: left !important; }
+        .price { font-weight: bold; color: #047857; }
+    </style>
 </head>
-
 <body>
-<header>
-    <h1>Таблиця продукції</h1>
-    <p>Основні характеристики</p>
-</header>
 
-<nav>
-    <a href="index.html">Головна</a>
-    <a href="company.html">Підприємство</a>
-    <a href="news.html">Новини</a>
-    <a href="menu.html">Асортимент</a>
-    <a class="active" href="table.html">Таблиця</a>
-    <a href="form.html">Форма</a>
-    <a href="media.html">Медіа</a>
-</nav>
+<div class="container">
+    <h1>ТОВ «FreshDrink»</h1>
+    <div class="subtitle">Лабораторна робота №4 — Заповнена таблица продукції (Варіант №14)</div>
 
-<main>
-    <section class="page">
-        <h2>Дані продукції</h2>
-
-        <table>
+    <table class="fresh-table" summary="Каталог слабоалкогольних напоїв підприємства FreshDrink">
+        <caption>Специфікація та характеристика лінійок напоїв FreshDrink</caption>
+        
+        <colgroup>
+            <col style="width: 40px;">
+            <col style="width: 120px;">
+            <col style="width: 150px;">
+            <col style="width: 90px;">
+            <col style="width: 80px;">
+            <col style="width: 70px;">
+            <col style="width: 110px;">
+            <col style="width: 140px;">
+            <col style="width: 90px;">
+            <col style="width: 90px;">
+        </colgroup>
+        <thead>
+            <!-- Рядок шапки 1 -->
             <tr>
-                <th>Вид</th>
-                <th>Марка</th>
-                <th>Виробник</th>
-                <th>Постачальник</th>
-                <th>Термін</th>
-                <th>Ціна</th>
+                <th rowspan="3">№</th>
+                <th rowspan="3">Категорія</th>
+                <th rowspan="3">Найменування продукції</th>
+                <th colspan="4">Технічні та якісні характеристики</th>
+                <th rowspan="3">Постачальник сировини</th>
+                <th colspan="2">Економічні показники</th>
+            </tr>
+            <!-- Рядок шапки 2 -->
+            <tr>
+                <th rowspan="2">Упаковка / Об'єм</th>
+                <th colspan="3">Склад та фізико-хімічні показники</th>
+                <th rowspan="2">Собівартість, грн</th>
+                <th rowspan="2">Роздрібна ціна, грн</th>
+            </tr>
+            <!-- Рядок шапки 3 -->
+            <tr>
+                <th>Об'ємна частка спирту, %</th>
+                <th>Масова цукру, г/дм³</th>
+                <th>Термін придатності</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Товарний блок 1 -->
+            <tr>
+                <td rowspan="2">1</td>
+                <td rowspan="2" class="text-left">Сидри яблучні</td>
+                <td rowspan="2" class="text-left"><strong>Fresh Apple Classic</strong></td>
+                <td>Скло 0.33 л</td>
+                <td>4.5%</td>
+                <td rowspan="2">35.0</td>
+                <td>6 місяців</td>
+                <td rowspan="2" class="text-left">ПП «Басараб В.»</td>
+                <td rowspan="2">28.50</td>
+                <td class="price">45.00</td>
+            </tr>
+            <tr>
+                <td>ПЕТ 0.5 л</td>
+                <td>4.7%</td>
+                <td>9 місяців</td>
+                <td class="price">42.00</td>
             </tr>
 
+            <!-- Товарний блок 2 -->
             <tr>
-                <td>Яблучний</td>
-                <td>Fresh Apple</td>
-                <td>FreshDrink</td>
-                <td>FoodSupply</td>
-                <td>12 міс.</td>
-                <td>45 грн</td>
+                <td rowspan="2">2</td>
+                <td rowspan="2" class="text-left">Цитрусові мікси</td>
+                <td rowspan="2" class="text-left"><strong>Fresh Lemon Spritz</strong></td>
+                <td>Скло 0.33 л</td>
+                <td>5.0%</td>
+                <td rowspan="2">42.0</td>
+                <td>6 місяців</td>
+                <td rowspan="2" class="text-left">ТОВ «Дистриб'юшн Груп»</td>
+                <td rowspan="2">30.00</td>
+                <td class="price">48.00</td>
+            </tr>
+            <tr>
+                <td>Ж/Б 0.33 л</td>
+                <td>5.0%</td>
+                <td>12 місяців</td>
+                <td class="price">50.00</td>
             </tr>
 
+            <!-- Товарний блок 3 -->
             <tr>
-                <td>Лимонний</td>
-                <td>Fresh Lemon</td>
-                <td>FreshDrink</td>
-                <td>FoodSupply</td>
-                <td>12 міс.</td>
-                <td>48 грн</td>
+                <td rowspan="2">3</td>
+                <td rowspan="2" class="text-left">Ягідні лонг-дрінки</td>
+                <td rowspan="2" class="text-left"><strong>Fresh Berry Wild</strong></td>
+                <td>Скло 0.33 л</td>
+                <td>4.8%</td>
+                <td rowspan="2">50.0</td>
+                <td>9 місяців</td>
+                <td rowspan="2" class="text-left">ПП «Басараб В.»</td>
+                <td rowspan="2">32.00</td>
+                <td class="price">50.00</td>
+            </tr>
+            <tr>
+                <td>ПЕТ 0.5 л</td>
+                <td>5.2%</td>
+                <td>9 місяців</td>
+                <td class="price">47.00</td>
             </tr>
 
+            <!-- Товарний блок 4 -->
             <tr>
-                <td>Ягідний</td>
-                <td>Fresh Berry</td>
-                <td>FreshDrink</td>
-                <td>FoodSupply</td>
-                <td>12 міс.</td>
-                <td>50 грн</td>
+                <td rowspan="2">4</td>
+                <td rowspan="2" class="text-left">Енергетичні тоніки</td>
+                <td rowspan="2" class="text-left"><strong>Fresh Energy Boost</strong></td>
+                <td>Ж/Б 0.25 л</td>
+                <td>6.0%</td>
+                <td rowspan="2">55.0</td>
+                <td>12 місяців</td>
+                <td rowspan="2" class="text-left">ТОВ «Логістик Плюс»</td>
+                <td rowspan="2">34.50</td>
+                <td class="price">52.00</td>
             </tr>
-        </table>
-    </section>
-</main>
+            <tr>
+                <td>Ж/Б 0.5 л</td>
+                <td>6.0%</td>
+                <td>12 місяців</td>
+                <td class="price">65.00</td>
+            </tr>
+            <!-- Товарний блок 5 -->
+            <tr>
+                <td rowspan="2">5</td>
+                <td rowspan="2" class="text-left">Безалкогольні фреші</td>
+                <td rowspan="2" class="text-left"><strong>Fresh Lime Zero</strong></td>
+                <td>Скло 0.33 л</td>
+                <td>0.0%</td>
+                <td rowspan="2">25.0</td>
+                <td>6 місяців</td>
+                <td rowspan="2" class="text-left">ТОВ «ФудСаплай»</td>
+                <td rowspan="2">22.00</td>
+                <td class="price">38.00</td>
+            </tr>
+            <tr>
+                <td>ПЕТ 0.5 л</td>
+                <td>0.0%</td>
+                <td>6 місяців</td>
+                <td class="price">35.00</td>
+            </tr>
+        </tbody>
 
-<footer>© 2026 FreshDrink</footer>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-left">Всього позицій в каталозі: 5 наименувань (10 SKU)</td>
+                <td>Середні знач.:</td>
+                <td>4.3%</td>
+                <td>41.4</td>
+                <td>—</td>
+                <td>Середня собівартість:</td>
+                <td>29.40 грн</td>
+                <td>47.20 грн</td>
+            </tr>
+            <tr>
+                <td colspan="10" class="text-left">Автор розробки: Олександр Дмитрович Рогатинович | Підприємство ТОВ «FreshDrink»</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
 </body>
 </html>
