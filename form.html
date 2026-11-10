@@ -2,57 +2,235 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Олександр Дмитрович Рогатинович">
-    <title>FreshDrink — Форма</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Студент">
+    <meta name="description" content="Форма замовлення напоїв FreshDrink">
+    <meta name="keywords" content="FreshDrink, напої, замовлення, форма">
+    <title>Замовлення | FreshDrink</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            max-width: 750px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            padding: 18px;
+            border: 1px solid #168b55;
+            border-radius: 10px;
+        }
+
+        legend {
+            color: #168b55;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 5px;
+        }
+
+        input, select, textarea {
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="reset"]),
+        select, textarea {
+            width: 100%;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        input[type="submit"], input[type="reset"], button {
+            margin: 8px 5px 0 0;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            background: #168b55;
+            color: white;
+            cursor: pointer;
+        }
+
+        output {
+            font-weight: bold;
+            color: #168b55;
+        }
+    </style>
 </head>
-
 <body>
-<header>
-    <h1>Форма</h1>
-    <p>Додавання інформації про продукцію</p>
-</header>
+    <header>
+        <h1>FreshDrink</h1>
+        <p>Замовлення свіжих напоїв</p>
+    </header>
 
-<nav>
-    <a href="index.html">Головна</a>
-    <a href="company.html">Підприємство</a>
-    <a href="news.html">Новини</a>
-    <a href="menu.html">Асортимент</a>
-    <a href="table.html">Таблиця</a>
-    <a class="active" href="form.html">Форма</a>
-    <a href="media.html">Медіа</a>
-</nav>
+    <nav>
+        <a href="index.html">Головна</a>
+        <a href="company.html">Про компанію</a>
+        <a href="news.html">Новини</a>
+        <a href="menu.html">Каталог</a>
+        <a href="table.html">Таблиці</a>
+        <a href="form.html">Замовлення</a>
+    </nav>
 
-<main>
-    <section class="form-box">
-        <h2>Додати продукцію</h2>
+    <main>
+        <h2>Форма замовлення</h2>
+        <p>Поля зі знаком * обов'язкові для заповнення.</p>
 
-        <form>
-            <label>Вид</label>
-            <input type="text" placeholder="Слабо алкоголні напої">
+        <form id="orderForm" name="orderForm"
+              action="#" accept-charset="UTF-8"
+              class="order-form" style="color: #333;"
+              onsubmit="return checkOrder()">
 
-            <label>Марка</label>
-            <input type="text" placeholder="Білий налив">
+            <fieldset>
+                <legend id="contact" title="Контактні дані"
+                        style="font-variant: small-caps;">
+                    Контактна інформація
+                </legend>
 
-            <label>Виробник</label>
-            <input type="text" placeholder="Домітрович Вадим">
-    ">
+                <label for="name">Ваше ім'я *</label>
+                <input type="text" id="name" name="name"
+                       title="Введіть ім'я" required
+                       maxlength="50" autofocus>
 
-            <label>Постачальник</label>
-            <input type="text" placeholder="Владислав Басараб">
+                <label for="phone">Телефон *</label>
+                <input type="tel" id="phone" name="phone"
+                       placeholder="+380XXXXXXXXX"
+                       pattern="[+]380[0-9]{9}" required>
 
-            <label>Термін придатності</label>
-            <input type="text" placeholder="Наприклад: 6 місяців">
+                <label for="email">Електронна пошта *</label>
+                <input type="email" id="email" name="email"
+                       placeholder="name@example.com" required>
 
-            <label>Ціна</label>
-            <input type="number" placeholder="Введіть ціну">
+                <label for="website">Ваш сайт (необов'язково)</label>
+                <input type="url" id="website" name="website"
+                       placeholder="https://example.com">
 
-            <button type="submit">Надіслати</button>
-            <button type="reset">Очистити</button>
+                <label for="deliveryDate">Дата доставки *</label>
+                <input type="datetime-local" id="deliveryDate"
+                       name="deliveryDate" required>
+            </fieldset>
+
+            <fieldset>
+                <legend title="Інформація про замовлення">
+                    Ваше замовлення
+                </legend>
+
+                <label for="drink">Оберіть напій *</label>
+                <select id="drink" name="drink" required class="drink-list">
+                    <optgroup label="Соки" id="juices"
+                              style="color: #168b55;">
+                        <option value="orange">Апельсиновий сік</option>
+                        <option value="apple">Яблучний сік</option>
+                        <option value="multifruit">Мультифруктовий сік</option>
+                    </optgroup>
+                    <optgroup label="Інші напої" id="otherDrinks">
+                        <option value="lemonade">Лимонад</option>
+                        <option value="water">Мінеральна вода</option>
+                    </optgroup>
+                </select>
+
+                <label for="quantity">Кількість пляшок *</label>
+                <input type="number" id="quantity" name="quantity"
+                       min="1" max="100" value="1" required>
+
+                <label for="month">Місяць замовлення</label>
+                <input type="month" id="month" name="month">
+
+                <label for="receipt">Додати файл (необов'язково)</label>
+                <input type="file" id="receipt" name="receipt"
+                       accept=".jpg,.png,.pdf">
+
+                <label for="comment">Коментар до замовлення</label>
+                <textarea id="comment" name="comment" cols="40" rows="4"
+                          form="orderForm" autofocus
+                          dirname="comment.dir"
+                          placeholder="Ваші побажання..."></textarea>
+
+                <label for="delivery">Спосіб доставки</label>
+                <input list="deliveryList" id="delivery" name="delivery"
+                       placeholder="Оберіть або введіть">
+                <datalist id="deliveryList" lang="uk" dir="ltr"
+                          title="Варіанти доставки">
+                    <option value="Самовивіз">
+                    <option value="Кур'єр">
+                    <option value="Пошта">
+                </datalist>
+            </fieldset>
+
+            <fieldset>
+                <legend>Додаткова інформація</legend>
+
+                <label>
+                    <input type="checkbox" name="news" checked>
+                    Отримувати новини про акції
+                </label>
+
+                <label for="rating">Оцініть асортимент (1–10)</label>
+                <input type="range" id="rating" name="rating"
+                       min="1" max="10" value="8"
+                       oninput="ratingOutput.value = this.value">
+                <output id="ratingOutput" for="rating"
+                        lang="uk" dir="ltr">8</output>
+
+                <p>Заповнення форми:</p>
+                <progress value="75" max="100">75%</progress>
+
+                <p>Рівень запасів напоїв:</p>
+                <meter min="0" max="100" low="30" high="70"
+                       optimum="90" value="80" class="stock">
+                    80%
+                </meter>
+
+                <p id="status">Перевірте введені дані перед відправленням.</p>
+            </fieldset>
+
+            <input type="submit" value="Відправити інформацію">
+            <input type="reset" value="Очистити форму">
+
+            <button type="button" value="info"
+                    formmethod="get" formenctype="text/plain"
+                    formtarget="_self"
+                    onclick="alert('Заповніть обов’язкові поля та перевірте замовлення.')">
+                Допомога
+            </button>
+
+            <input type="hidden" name="formVersion" value="1">
         </form>
-    </section>
-</main>
+    </main>
 
-<footer>© 2026 FreshDrink</footer>
+    <footer>
+        <p>© 2026 FreshDrink</p>
+    </footer>
+
+    <script>
+        function checkOrder() {
+            const quantity = document.getElementById("quantity").value;
+            const name = document.getElementById("name").value.trim();
+
+            if (name === "" || quantity < 1 || quantity > 100) {
+                alert("Перевірте ім'я та кількість товарів.");
+                return false;
+            }
+
+            document.getElementById("status").textContent =
+                "Дані перевірено. Форма готова!";
+            alert("Перевірку пройдено! Дані на сервер не надсилаються.");
+            return false;
+        }
+    </script>
 </body>
 </html>
