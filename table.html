@@ -1,259 +1,305 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="FreshDrink, слабоалкогольні напої, таблиця продукції, сидр, асортимент">
-    <meta name="author" content="Рогатинович Олександр Дмитрович">
-    <title>FreshDrink — Таблиця продукції</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f8f6;
-            color: #1a2e26;
-            margin: 0;
-            padding: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ТОВ «FRESHDRINK» — Лабораторна робота №4 (Варіант №14)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7f6;
+      color: #1b2a24;
+    }
 
-        h1 {
-            color: #047857;
-            text-align: center;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
+    .sheet {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 28px 32px;
+      border-radius: 10px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    }
 
-        .subtitle {
-            text-align: center;
-            color: #4b5563;
-            margin-bottom: 25px;
-        }
+    .header-block {
+      text-align: center;
+      margin-bottom: 18px;
+    }
 
-        /* Основні стилі для таблиці згідно з вимогами ЛР4 */
-        table.fresh-table {
-            display: table;
-            width: 100%;
-            border-collapse: collapse;
-            border-spacing: 0;
-            table-layout: auto;
-            empty-cells: show;
-            margin-bottom: 20px;
-            font-size: 13px;
-        }
+    .header-block h1 {
+      margin: 0 0 6px;
+      font-size: 26px;
+      letter-spacing: 0.5px;
+      color: #00754a;
+    }
 
-        table.fresh-table caption {
-            caption-side: top;
-            font-size: 16px;
-            font-weight: bold;
-            color: #065f46;
-            padding: 10px;
-            text-align: left;
-        }
+    .header-block p {
+      margin: 0;
+      font-size: 14px;
+      color: #556860;
+    }
 
-        table.fresh-table th, 
-        table.fresh-table td {
-            border: 1px solid #10b981;
-            padding: 8px 10px;
-            text-align: center;
-            vertical-align: middle;
-        }
+    .table-caption {
+      margin: 0 0 10px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #00754a;
+    }
 
-        table.fresh-table thead th {
-            background-color: #047857;
-            color: #ffffff;
-            font-weight: 600;
-        }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 12.5px;
+      line-height: 1.35;
+    }
 
-        table.fresh-table tbody tr:nth-child(even) {
-            background-color: #f0fdf4;
-        }
+    th, td {
+      border: 1.5px solid #0b5d3f;
+      padding: 7px 6px;
+      text-align: center;
+      vertical-align: middle;
+      word-wrap: break-word;
+    }
 
-        table.fresh-table tbody tr:hover {
-            background-color: #d1fae5;
-        }
+    thead th {
+      background-color: #00754a;
+      color: #ffffff;
+      font-weight: 600;
+      border-color: #084c33;
+    }
 
-        table.fresh-table tfoot td {
-            background-color: #e6f4ea;
-            font-weight: bold;
-            color: #065f46;
-        }
+    tbody tr:nth-child(4n+1),
+    tbody tr:nth-child(4n+2) {
+      background-color: #ffffff;
+    }
 
-        .text-left { text-align: left !important; }
-        .price { font-weight: bold; color: #047857; }
-    </style>
+    tbody tr:nth-child(4n+3),
+    tbody tr:nth-child(4n+4) {
+      background-color: #f7fbf9;
+    }
+
+    .text-left {
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    .product-name {
+      font-weight: 600;
+      color: #0f241c;
+    }
+
+    .price {
+      font-weight: 700;
+      color: #00754a;
+    }
+
+    .stagger-cell {
+      background-color: #eef7f3;
+      font-size: 12px;
+    }
+
+    tfoot tr {
+      background-color: #e3f3ec;
+      font-weight: 600;
+      color: #0d3b2a;
+    }
+
+    tfoot tr:last-child {
+      background-color: #d6ede3;
+      font-size: 11.5px;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
+  <div class="sheet">
+    <div class="header-block">
+      <h1>ТОВ «FRESHDRINK»</h1>
+      <p>Лабораторна робота №4 — Заповнена таблиця продукції (Варіант №14)</p>
+    </div>
 
-<div class="container">
-    <h1>ТОВ «FreshDrink»</h1>
-    <div class="subtitle">Лабораторна робота №4 — Заповнена таблица продукції (Варіант №14)</div>
+    <div class="table-caption">Специфікація та характеристика лінійок напоїв FreshDrink</div>
 
-    <table class="fresh-table" summary="Каталог слабоалкогольних напоїв підприємства FreshDrink">
-        <caption>Специфікація та характеристика лінійок напоїв FreshDrink</caption>
-        
-        <colgroup>
-            <col style="width: 40px;">
-            <col style="width: 120px;">
-            <col style="width: 150px;">
-            <col style="width: 90px;">
-            <col style="width: 80px;">
-            <col style="width: 70px;">
-            <col style="width: 110px;">
-            <col style="width: 140px;">
-            <col style="width: 90px;">
-            <col style="width: 90px;">
-        </colgroup>
-        <thead>
-            <!-- Рядок шапки 1 -->
-            <tr>
-                <th rowspan="3">№</th>
-                <th rowspan="3">Категорія</th>
-                <th rowspan="3">Найменування продукції</th>
-                <th colspan="4">Технічні та якісні характеристики</th>
-                <th rowspan="3">Постачальник сировини</th>
-                <th colspan="2">Економічні показники</th>
-            </tr>
-            <!-- Рядок шапки 2 -->
-            <tr>
-                <th rowspan="2">Упаковка / Об'єм</th>
-                <th colspan="3">Склад та фізико-хімічні показники</th>
-                <th rowspan="2">Собівартість, грн</th>
-                <th rowspan="2">Роздрібна ціна, грн</th>
-            </tr>
-            <!-- Рядок шапки 3 -->
-            <tr>
-                <th>Об'ємна частка спирту, %</th>
-                <th>Масова цукру, г/дм³</th>
-                <th>Термін придатності</th>
-            </tr>
-        </thead>
+    <table>
+      <!-- Точні пропорції 10 базових стовпців згідно зі схемою Варіанту №14 -->
+      <colgroup>
+        <col style="width: 4.6%;">   <!-- C1: № -->
+        <col style="width: 5.4%;">   <!-- C2: Код кат. -->
+        <col style="width: 28.0%;">  <!-- C3: Найменування продукції -->
+        <col style="width: 5.5%;">   <!-- C4: Тара / об'єм -->
+        <col style="width: 5.1%;">   <!-- C5: Спирт, % -->
+        <col style="width: 5.3%;">   <!-- C6: Цукор, г/дм³ -->
+        <col style="width: 6.6%;">   <!-- C7: Термін, міс. -->
+        <col style="width: 21.9%;">  <!-- C8: Постачальник сировини -->
+        <col style="width: 8.3%;">   <!-- C9: Собівартість, грн -->
+        <col style="width: 9.3%;">   <!-- C10: Роздрібна ціна, грн -->
+      </colgroup>
 
-        <tbody>
-            <!-- Товарний блок 1 -->
-            <tr>
-                <td rowspan="2">1</td>
-                <td rowspan="2" class="text-left">Сидри яблучні</td>
-                <td rowspan="2" class="text-left"><strong>Fresh Apple Classic</strong></td>
-                <td>Скло 0.33 л</td>
-                <td>4.5%</td>
-                <td rowspan="2">35.0</td>
-                <td>6 місяців</td>
-                <td rowspan="2" class="text-left">ПП «Басараб В.»</td>
-                <td rowspan="2">28.50</td>
-                <td class="price">45.00</td>
-            </tr>
-            <tr>
-                <td>ПЕТ 0.5 л</td>
-                <td>4.7%</td>
-                <td>9 місяців</td>
-                <td class="price">42.00</td>
-            </tr>
+      <!-- ШАПКА: 3 рядки (ідентично Варіанту №14) -->
+      <thead>
+        <tr>
+          <th rowspan="3">№</th>
+          <th rowspan="3">Код кат.</th>
+          <th rowspan="3">Найменування продукції</th>
+          <th colspan="4">Технічні та якісні характеристики</th>
+          <th rowspan="3">Постачальник сировини</th>
+          <th colspan="2">Економічні показники</th>
+        </tr>
+        <tr>
+          <th rowspan="2">Тара / об'єм</th>
+          <th colspan="3">Склад та фізико-хімічні показники</th>
+          <th rowspan="2">Собівартість, грн</th>
+          <th rowspan="2">Роздрібна ціна, грн</th>
+        </tr>
+        <tr>
+          <th>Спирт, %</th>
+          <th>Цукор, г/дм³</th>
+          <th>Термін, міс.</th>
+        </tr>
+      </thead>
 
-            <!-- Товарний блок 2 -->
-            <tr>
-                <td rowspan="2">2</td>
-                <td rowspan="2" class="text-left">Цитрусові мікси</td>
-                <td rowspan="2" class="text-left"><strong>Fresh Lemon Spritz</strong></td>
-                <td>Скло 0.33 л</td>
-                <td>5.0%</td>
-                <td rowspan="2">42.0</td>
-                <td>6 місяців</td>
-                <td rowspan="2" class="text-left">ТОВ «Дистриб'юшн Груп»</td>
-                <td rowspan="2">30.00</td>
-                <td class="price">48.00</td>
-            </tr>
-            <tr>
-                <td>Ж/Б 0.33 л</td>
-                <td>5.0%</td>
-                <td>12 місяців</td>
-                <td class="price">50.00</td>
-            </tr>
+      <!-- ТІЛО ТАБЛИЦІ: 5 блоків × 2 рядки = 10 рядків (2-й і 3-й стовпці розділені по рядках) -->
+      <tbody>
+        <!-- Блок 1 (рядки 4-5) -->
+        <tr>
+          <td rowspan="2">1</td>
+          <td>СД-01.1</td>
+          <td class="text-left product-name">Fresh Apple Classic (Сидр яблучний класичний)</td>
+          <td>Скло 0.33 л</td>
+          <td colspan="2" class="stagger-cell">Спирт: 4.5% | Цукор: 35.0</td>
+          <td>6</td>
+          <td rowspan="2" class="text-left">ПП «Басараб В.»</td>
+          <td rowspan="2">28.50</td>
+          <td class="price">45.00</td>
+        </tr>
+        <tr>
+          <td>СД-01.2</td>
+          <td class="text-left product-name">Fresh Apple Classic PET (Сидр яблучний фільтрований)</td>
+          <td>ПЕТ 0.5 л</td>
+          <td>4.7%</td>
+          <td colspan="2" class="stagger-cell">Цукор: 35.0 | Термін: 9 міс.</td>
+          <td class="price">42.00</td>
+        </tr>
 
-            <!-- Товарний блок 3 -->
-            <tr>
-                <td rowspan="2">3</td>
-                <td rowspan="2" class="text-left">Ягідні лонг-дрінки</td>
-                <td rowspan="2" class="text-left"><strong>Fresh Berry Wild</strong></td>
-                <td>Скло 0.33 л</td>
-                <td>4.8%</td>
-                <td rowspan="2">50.0</td>
-                <td>9 місяців</td>
-                <td rowspan="2" class="text-left">ПП «Басараб В.»</td>
-                <td rowspan="2">32.00</td>
-                <td class="price">50.00</td>
-            </tr>
-            <tr>
-                <td>ПЕТ 0.5 л</td>
-                <td>5.2%</td>
-                <td>9 місяців</td>
-                <td class="price">47.00</td>
-            </tr>
+        <!-- Блок 2 (рядки 6-7) -->
+        <tr>
+          <td rowspan="2">2</td>
+          <td>ЦМ-02.1</td>
+          <td class="text-left product-name">Fresh Lemon Spritz (Цитрусовий мікс лимон-лайм)</td>
+          <td>Скло 0.33 л</td>
+          <td colspan="2" class="stagger-cell">Спирт: 5.0% | Цукор: 42.0</td>
+          <td>6</td>
+          <td rowspan="2" class="text-left">ТОВ «Дистриб’юшн Груп»</td>
+          <td rowspan="2">30.00</td>
+          <td class="price">48.00</td>
+        </tr>
+        <tr>
+          <td>ЦМ-02.2</td>
+          <td class="text-left product-name">Fresh Lemon Spritz Can (Цитрусовий мікс охолоджений)</td>
+          <td>Ж/Б 0.33 л</td>
+          <td>5.0%</td>
+          <td colspan="2" class="stagger-cell">Цукор: 42.0 | Термін: 12 міс.</td>
+          <td class="price">50.00</td>
+        </tr>
 
-            <!-- Товарний блок 4 -->
-            <tr>
-                <td rowspan="2">4</td>
-                <td rowspan="2" class="text-left">Енергетичні тоніки</td>
-                <td rowspan="2" class="text-left"><strong>Fresh Energy Boost</strong></td>
-                <td>Ж/Б 0.25 л</td>
-                <td>6.0%</td>
-                <td rowspan="2">55.0</td>
-                <td>12 місяців</td>
-                <td rowspan="2" class="text-left">ТОВ «Логістик Плюс»</td>
-                <td rowspan="2">34.50</td>
-                <td class="price">52.00</td>
-            </tr>
-            <tr>
-                <td>Ж/Б 0.5 л</td>
-                <td>6.0%</td>
-                <td>12 місяців</td>
-                <td class="price">65.00</td>
-            </tr>
-            <!-- Товарний блок 5 -->
-            <tr>
-                <td rowspan="2">5</td>
-                <td rowspan="2" class="text-left">Безалкогольні фреші</td>
-                <td rowspan="2" class="text-left"><strong>Fresh Lime Zero</strong></td>
-                <td>Скло 0.33 л</td>
-                <td>0.0%</td>
-                <td rowspan="2">25.0</td>
-                <td>6 місяців</td>
-                <td rowspan="2" class="text-left">ТОВ «ФудСаплай»</td>
-                <td rowspan="2">22.00</td>
-                <td class="price">38.00</td>
-            </tr>
-            <tr>
-                <td>ПЕТ 0.5 л</td>
-                <td>0.0%</td>
-                <td>6 місяців</td>
-                <td class="price">35.00</td>
-            </tr>
-        </tbody>
+        <!-- Блок 3 (рядки 8-9) -->
+        <tr>
+          <td rowspan="2">3</td>
+          <td>ЯЛ-03.1</td>
+          <td class="text-left product-name">Fresh Berry Wild (Ягідний лонг-дрінк лісова ягода)</td>
+          <td>Скло 0.33 л</td>
+          <td colspan="2" class="stagger-cell">Спирт: 4.8% | Цукор: 50.0</td>
+          <td>9</td>
+          <td rowspan="2" class="text-left">ПП «Басараб В.»</td>
+          <td rowspan="2">32.00</td>
+          <td class="price">50.00</td>
+        </tr>
+        <tr>
+          <td>ЯЛ-03.2</td>
+          <td class="text-left product-name">Fresh Berry Wild PET (Ягідний лонг-дрінк смородина)</td>
+          <td>ПЕТ 0.5 л</td>
+          <td>5.2%</td>
+          <td colspan="2" class="stagger-cell">Цукор: 50.0 | Термін: 9 міс.</td>
+          <td class="price">47.00</td>
+        </tr>
 
-        <tfoot>
-            <tr>
-                <td colspan="3" class="text-left">Всього позицій в каталозі: 5 наименувань (10 SKU)</td>
-                <td>Середні знач.:</td>
-                <td>4.3%</td>
-                <td>41.4</td>
-                <td>—</td>
-                <td>Середня собівартість:</td>
-                <td>29.40 грн</td>
-                <td>47.20 грн</td>
-            </tr>
-            <tr>
-                <td colspan="10" class="text-left">Автор розробки: Олександр Дмитрович Рогатинович | Підприємство ТОВ «FreshDrink»</td>
-            </tr>
-        </tfoot>
+        <!-- Блок 4 (рядки 10-11) -->
+        <tr>
+          <td rowspan="2">4</td>
+          <td>ЕТ-04.1</td>
+          <td class="text-left product-name">Fresh Energy Boost (Енергетичний тонік оригінальний)</td>
+          <td>Ж/Б 0.25 л</td>
+          <td colspan="2" class="stagger-cell">Спирт: 6.0% | Цукор: 55.0</td>
+          <td>12</td>
+          <td rowspan="2" class="text-left">ТОВ «Логістик Плюс»</td>
+          <td rowspan="2">34.50</td>
+          <td class="price">52.00</td>
+        </tr>
+        <tr>
+          <td>ЕТ-04.2</td>
+          <td class="text-left product-name">Fresh Energy Boost Max (Енергетичний тонік подвійний)</td>
+          <td>Ж/Б 0.5 л</td>
+          <td>6.0%</td>
+          <td colspan="2" class="stagger-cell">Цукор: 55.0 | Термін: 12 міс.</td>
+          <td class="price">65.00</td>
+        </tr>
+
+        <!-- Блок 5 (рядки 12-13) -->
+        <tr>
+          <td rowspan="2">5</td>
+          <td>БФ-05.1</td>
+          <td class="text-left product-name">Fresh Lime Zero (Безалкогольний фреш лайм-м’ята)</td>
+          <td>Скло 0.33 л</td>
+          <td colspan="2" class="stagger-cell">Спирт: 0.0% | Цукор: 25.0</td>
+          <td>6</td>
+          <td rowspan="2" class="text-left">ТОВ «ФудСаплай»</td>
+          <td rowspan="2">22.00</td>
+          <td class="price">38.00</td>
+        </tr>
+        <tr>
+          <td>БФ-05.2</td>
+          <td class="text-left product-name">Fresh Lime Zero PET (Безалкогольний фреш цитрус)</td>
+          <td>ПЕТ 0.5 л</td>
+          <td>0.0%</td>
+          <td colspan="2" class="stagger-cell">Цукор: 25.0 | Термін: 6 міс.</td>
+          <td class="price">35.00</td>
+        </tr>
+      </tbody>
+
+      <!-- ПІДСУМКИ: 2 рядки по 10 окремих комірок -->
+      <tfoot>
+        <tr>
+          <td>Σ</td>
+          <td>5 кат.</td>
+          <td class="text-left">Всього позицій: 5 найменувань (10 SKU)</td>
+          <td>10 шт.</td>
+          <td>4.3%</td>
+          <td>41.4</td>
+          <td>8.4</td>
+          <td class="text-left">Середні показники по каталогу</td>
+          <td>29.40</td>
+          <td>47.20</td>
+        </tr>
+        <tr>
+          <td>№14</td>
+          <td>ЛР-4</td>
+          <td class="text-left">Виконав: Рогатинович Олександр Дмитрович</td>
+          <td>ДСТУ</td>
+          <td>0–6%</td>
+          <td>25–55</td>
+          <td>6–12</td>
+          <td class="text-left">Підприємство: ТОВ «FreshDrink»</td>
+          <td>грн</td>
+          <td>грн</td>
+        </tr>
+      </tfoot>
     </table>
-</div>
-
+  </div>
 </body>
 </html>
