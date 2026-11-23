@@ -1,1 +1,256 @@
+javascr
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Студент">
+    <meta name="description" content="Лабораторна робота №7 JavaScript">
+    <title>FreshDrink — JavaScript</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .js-page {
+            padding: 20px;
+        }
+
+        .js-card {
+            background: white;
+            border: 1px solid #c8ddce;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .js-page input, .js-page textarea, .js-page button {
+            padding: 9px;
+            margin: 5px;
+            border-radius: 6px;
+        }
+
+        .js-page textarea {
+            width: 100%;
+            min-height: 100px;
+        }
+
+        .js-page button {
+            background: #218c52;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .js-page button:hover {
+            background: #166b3c;
+        }
+
+        .js-image {
+            display: inline-block;
+            font-size: 65px;
+            padding: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .js-image:hover {
+            transform: scale(1.15);
+        }
+
+        .result {
+            background: #eef7f0;
+            padding: 10px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+<header id="header">
+    <h1>FreshDrink</h1>
+    <p>Свіжість у кожному ковтку!</p>
+</header>
+
+<nav id="navigation">
+    <a href="index.html">Головна</a>
+    <a href="company.html">Підприємство</a>
+    <a href="news.html">Новини</a>
+    <a href="menu.html">Асортимент</a>
+    <a href="lists.html">Списки</a>
+    <a href="table.html">Таблиця</a>
+    <a href="form.html">Форма</a>
+    <a href="media.html">SVG</a>
+    <a class="active" href="javascript.html">JavaScript</a>
+</nav>
+
+<main id="content">
+<section class="page js-page">
+
+    <h2>Лабораторна робота №7</h2>
+    <h3>JavaScript — обробка подій</h3>
+
+    <div class="js-card">
+        <h3>1. Події вікна</h3>
+        <p id="windowInfo" class="result">Очікування подій...</p>
+        <button onclick="runTask()">Run Task</button>
+    </div>
+
+    <div class="js-card">
+        <h3>2. Події миші</h3>
+        <p id="mouseInfo" class="result">Взаємодійте з елементами нижче</p>
+
+        <button onclick="mouseEvent('Клік')"
+                ondblclick="mouseEvent('Подвійний клік')"
+                onmouseover="mouseEvent('Навели мишу')"
+                onmouseout="mouseEvent('Миша покинула кнопку')"
+                onmousedown="mouseEvent('Натиснута кнопка миші')"
+                onmouseup="mouseEvent('Кнопку миші відпущено')">
+            Натисни або наведи
+        </button>
+
+        <div class="js-image"
+             onclick="mouseEvent('Натиснуто на апельсин')"
+             onmouseover="this.style.transform='scale(1.2)'"
+             onmouseout="this.style.transform='scale(1)'">
+            🍊
+        </div>
+
+        <div class="js-image"
+             onclick="mouseEvent('Натиснуто на яблуко')">
+            🍏
+        </div>
+    </div>
+
+    <div class="js-card">
+        <h3>3. Пошук інформації</h3>
+        <textarea id="searchText" placeholder="Введіть текст для аналізу"></textarea>
+        <button onclick="searchText()">Пошук інформації</button>
+        <p id="searchResult" class="result"></p>
+    </div>
+
+    <div class="js-card">
+        <h3>4. Array Task — варіант 14</h3>
+        <p>Введіть числа через кому. Програма обчислить різницю суми додатних і від'ємних чисел.</p>
+
+        <input type="text" id="arrayInput" placeholder="Наприклад: 5, -3, 8, -2, 4">
+        <button onclick="arrayTask()">Array Task</button>
+
+        <p id="arrayResult" class="result"></p>
+    </div>
+
+</section>
+</main>
+
+<footer id="footer">
+    <p>© 2026 FreshDrink</p>
+</footer>
+
+<script>
+    // Події вікна
+    window.onload = function() {
+        document.getElementById("windowInfo").textContent =
+            "Сторінка завантажена (onload)";
+    };
+
+    window.onfocus = function() {
+        document.title = "FreshDrink — JavaScript";
+    };
+
+    window.onblur = function() {
+        document.title = "Вікно неактивне";
+    };
+
+    window.onresize = function() {
+        document.getElementById("windowInfo").textContent =
+            "Розмір вікна змінено";
+    };
+
+    window.ononline = function() {
+        document.getElementById("windowInfo").textContent =
+            "З'єднання з мережею є";
+    };
+
+    window.onoffline = function() {
+        document.getElementById("windowInfo").textContent =
+            "Відсутнє з'єднання з мережею";
+    };
+
+    // Run Task: інформація про сторінку
+    function runTask() {
+        let info = "";
+
+        info += "URL сторінки: " + location.href + "\n";
+        info += "Назва сторінки: " + document.title + "\n";
+        info += "Кількість посилань: " + document.links.length + "\n";
+        info += "Кількість зображень: " + document.images.length + "\n";
+        info += "Кількість елементів: " + document.all.length + "\n";
+        info += "Ширина вікна: " + window.innerWidth + " px\n";
+        info += "Висота вікна: " + window.innerHeight + " px";
+
+        document.getElementById("windowInfo").textContent = info;
+
+        console.log(info);
+    }
+
+    // Обробка подій миші
+    function mouseEvent(message) {
+        document.getElementById("mouseInfo").textContent =
+            "Подія: " + message;
+    }
+
+    // Пошук за допомогою регулярних виразів
+    function searchText() {
+        let text = document.getElementById("searchText").value;
+
+        let words = text.match(/\b[\p{L}]+\b/gu) || [];
+        let numbers = text.match(/\d+/g) || [];
+        let integers = text.match(/\b\d+\b/g) || [];
+
+        let pairs = [
+            ["р", "а"], ["е", "а"], ["г", "і"],
+            ["к", "о"], ["п", "я"], ["ш", "а"]
+        ];
+
+        let result = "Кількість слів: " + words.length + "\n";
+        result += "Кількість цифр: " + (text.match(/\d/g) || []).length + "\n";
+        result += "Кількість цілих чисел: " + integers.length + "\n";
+
+        pairs.forEach(function(pair) {
+            let regex = new RegExp("\\b" + pair[0] + "\\p{L}*" + pair[1] + "\\b", "giu");
+            let found = text.match(regex) || [];
+            result += "Слова на " + pair[0] + ", закінчуються на " +
+                      pair[1] + ": " + found.join(", ") + "\n";
+        });
+
+        document.getElementById("searchResult").textContent = result;
+    }
+
+    // Array Task — варіант 14
+    function arrayTask() {
+        let input = document.getElementById("arrayInput").value;
+        let arr = input.split(",").map(Number);
+
+        if (arr.length === 0 || arr.some(isNaN)) {
+            document.getElementById("arrayResult").textContent =
+                "Введіть правильні числа через кому.";
+            return;
+        }
+
+        let positive = arr.filter(n => n > 0).reduce((sum, n) => sum + n, 0);
+        let negative = arr.filter(n => n < 0).reduce((sum, n) => sum + n, 0);
+
+        let difference = positive - negative;
+
+        document.getElementById("arrayResult").textContent =
+            "Масив: " + arr.join(", ") +
+            "\nСума додатних: " + positive +
+            "\nСума від'ємних: " + negative +
+            "\nРізниця: " + difference;
+    }
+</script>
+
+</body>
+</html>
 
