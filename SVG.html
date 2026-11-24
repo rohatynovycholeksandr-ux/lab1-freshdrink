@@ -1,1 +1,194 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Студент">
+    <meta name="description" content="Лабораторна робота №6. SVG-графіка">
+    <meta name="keywords" content="SVG, графіка, HTML">
+    <title>FreshDrink — Лабораторна робота №6</title>
 
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .svg-page {
+            text-align: center;
+        }
+
+        .svg-card {
+            background: white;
+            border: 1px solid #c8ddce;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .svg-card svg {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+        }
+
+        .robot {
+            fill: blue;
+            stroke: black;
+            stroke-width: 1;
+        }
+
+        .axis {
+            stroke: black;
+            stroke-width: 2;
+        }
+
+        .axis-text {
+            font-size: 13px;
+            fill: black;
+        }
+    </style>
+</head>
+
+<body>
+
+<header id="header">
+    <h1>FreshDrink</h1>
+    <p>Свіжість у кожному ковтку!</p>
+</header>
+
+<nav id="navigation">
+    <a href="index.html">Головна</a>
+    <a href="company.html">Підприємство</a>
+    <a href="news.html">Новини</a>
+    <a href="menu.html">Асортимент</a>
+    <a href="lists.html">Списки</a>
+    <a href="table.html">Таблиця</a>
+    <a href="form.html">Форма</a>
+    <a class="active" href="media.html">SVG</a>
+</nav>
+
+<main id="content">
+    <section class="page svg-page">
+
+        <h2>Лабораторна робота №6</h2>
+        <h3>Основи SVG. Векторна графіка</h3>
+
+        <p>
+            У цій роботі створено графічне зображення за допомогою
+            SVG-елементів. Фігура складається з геометричних об'єктів
+            та розташована на координатній площині.
+        </p>
+
+        <div class="svg-card">
+
+            <svg viewBox="0 0 500 300"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <title>Синя SVG-фігура на координатній площині</title>
+
+                <desc>
+                    Фігура складається з голови, очей, тулуба,
+                    бокових елементів та ніг.
+                </desc>
+
+                <!-- Координатні осі -->
+                <line class="axis"
+                      x1="40" y1="150"
+                      x2="270" y2="150"/>
+
+                <line class="axis"
+                      x1="110" y1="20"
+                      x2="110" y2="270"/>
+
+                <!-- Стрілки осей -->
+                <polygon points="270,150 260,145 260,155"
+                         fill="black"/>
+
+                <polygon points="110,20 105,30 115,30"
+                         fill="black"/>
+
+                <!-- Позначки на осі X -->
+                <g class="axis-text">
+                    <text x="100" y="166">0</text>
+                    <text x="135" y="166">1</text>
+                    <text x="160" y="166">2</text>
+                    <text x="185" y="166">3</text>
+                    <text x="210" y="166">4</text>
+                    <text x="235" y="166">5</text>
+                    <text x="275" y="166">X</text>
+
+                    <!-- Позначки на осі Y -->
+                    <text x="95" y="125">1</text>
+                    <text x="95" y="100">2</text>
+                    <text x="95" y="75">3</text>
+                    <text x="95" y="175">-1</text>
+                    <text x="95" y="200">-2</text>
+                    <text x="120" y="20">Y</text>
+                </g>
+
+                <!-- Основна фігура -->
+                <g class="robot">
+
+                    <!-- Бокові квадрати голови -->
+                    <rect x="110" y="90"
+                          width="30" height="30"/>
+
+                    <rect x="240" y="90"
+                          width="30" height="30"/>
+
+                    <!-- Голова -->
+                    <ellipse cx="190" cy="120"
+                             rx="50" ry="30"/>
+
+                    <!-- Очі -->
+                    <circle cx="155" cy="75"
+                            r="13"/>
+
+                    <circle cx="225" cy="75"
+                            r="13"/>
+
+                    <!-- Тулуб -->
+                    <rect x="165" y="150"
+                          width="50" height="30"/>
+
+                    <ellipse cx="165" cy="165"
+                             rx="12" ry="15"/>
+
+                    <ellipse cx="215" cy="165"
+                             rx="12" ry="15"/>
+
+                    <!-- Ліва нога -->
+                    <rect x="140" y="180"
+                          width="25" height="30"/>
+
+                    <!-- Права нога -->
+                    <rect x="215" y="180"
+                          width="25" height="30"/>
+
+                </g>
+
+            </svg>
+
+        </div>
+
+        <h3>Використані SVG-елементи</h3>
+
+        <ul>
+            <li><b>svg</b> — контейнер для векторної графіки.</li>
+            <li><b>rect</b> — створення прямокутників.</li>
+            <li><b>circle</b> — створення кругів.</li>
+            <li><b>ellipse</b> — створення еліпсів.</li>
+            <li><b>line</b> — створення ліній.</li>
+            <li><b>polygon</b> — створення багатокутників.</li>
+            <li><b>text</b> — виведення тексту.</li>
+            <li><b>g</b> — групування графічних елементів.</li>
+            <li><b>desc</b> — опис SVG-зображення.</li>
+        </ul>
+
+    </section>
+</main>
+
+<footer id="footer">
+    <p>© 2026 FreshDrink</p>
+</footer>
+
+</body>
+</html>
